@@ -5,3 +5,33 @@ body {
   background-color: #f8fafc;
   color: #0f172a;
 }
+
+/* Custom scrollbar for horizontal tables */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Ensure horizontal scroll works on all devices */
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+}

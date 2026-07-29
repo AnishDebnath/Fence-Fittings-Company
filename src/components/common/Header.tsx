@@ -32,7 +32,7 @@ export const Header: React.FC = () => {
                         </div>
                     </Link>
 
-                    <div className="hidden md:flex items-center space-x-8">
+                    <div className="hidden lg:flex items-center space-x-8">
                         <Link
                             to="/"
                             className={`font-medium transition-colors ${isActive('/') ? 'text-blue-900 font-bold' : 'text-slate-600 hover:text-blue-900'}`}
@@ -61,7 +61,7 @@ export const Header: React.FC = () => {
                         </div>
                     </div>
 
-                    <div className="md:block lg:hidden">
+                    <div className="lg:hidden">
                         <button onClick={() => setIsOpen(!isOpen)} className="text-slate-600 p-2">
                             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                         </button>
@@ -70,7 +70,7 @@ export const Header: React.FC = () => {
             </div>
 
             {isOpen && (
-                <div className="md:block lg:hidden bg-white border-t border-gray-100 animate-in fade-in slide-in-from-top-4">
+                <div className="lg:hidden bg-white border-t border-gray-100 animate-in fade-in slide-in-from-top-4">
                     <div className="px-4 pt-2 pb-6 space-y-1">
                         <Link to="/" onClick={() => setIsOpen(false)} className="block w-full text-left px-3 py-4 text-base font-medium text-slate-700 hover:bg-slate-50">Home</Link>
                         <Link to="/products" onClick={() => setIsOpen(false)} className="block w-full text-left px-3 py-4 text-base font-medium text-slate-700 hover:bg-slate-50">Products</Link>
