@@ -1,18 +1,13 @@
 import React from 'react';
-import { Download, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { Package, ChevronRight, CheckCircle2 } from 'lucide-react';
 import bannerVideo from '../../../assets/banner video.mp4';
 
 interface HeroProps {
-    onCtaClick: () => void;
     onAboutClick?: () => void;
     onProductsClick?: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onCtaClick, onAboutClick, onProductsClick }) => {
-    const handleDownload = () => {
-        window.open('#', '_blank');
-        alert('Product catalogue will be available soon. Please contact us for more information.');
-    };
+export const Hero: React.FC<HeroProps> = ({ onAboutClick, onProductsClick }) => {
 
     return (
         <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden industrial-gradient">
@@ -42,24 +37,13 @@ export const Hero: React.FC<HeroProps> = ({ onCtaClick, onAboutClick, onProducts
 
                         <div className="flex flex-col sm:flex-row gap-4">
                             <button
-                                onClick={handleDownload}
+                                onClick={onProductsClick}
                                 className="flex items-center justify-center space-x-3 bg-white text-blue-900 px-8 py-4 rounded-xl font-bold hover:bg-blue-50 transition-all shadow-2xl shadow-blue-900/40 group"
                             >
-                                <>
-                                    <Download className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
-                                    <span>Download Full Catalogue (PDF)</span>
-                                </>
+                                <Package className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                                <span>Our Products</span>
                             </button>
 
-                            {onProductsClick && (
-                                <button
-                                    onClick={onProductsClick}
-                                    className="flex items-center justify-center space-x-3 border-2 border-white/20 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-all"
-                                >
-                                    <span>Our Products</span>
-                                    <ChevronRight className="w-4 h-4" />
-                                </button>
-                            )}
                             <button
                                 onClick={onAboutClick}
                                 className="flex items-center justify-center space-x-3 border-2 border-white/20 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-all"

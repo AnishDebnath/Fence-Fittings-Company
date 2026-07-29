@@ -3,8 +3,12 @@ import { TRUST_BADGES } from '../../data/badges';
 
 export const TrustSection: React.FC = () => {
     return (
-        <section className="bg-white py-12 border-b border-gray-100 overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative bg-blue-100 py-8 border-b border-gray-100 overflow-hidden">
+            <div className="absolute inset-0 opacity-[0.06] pointer-events-none" style={{
+                backgroundImage: `linear-gradient(rgba(37,99,235,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.2) 1px, transparent 1px)`,
+                backgroundSize: '40px 40px'
+            }} />
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Mobile Marquee View */}
                 <div className="md:hidden marquee-mask overflow-hidden">
                     <div className="flex animate-marquee whitespace-nowrap gap-12 w-fit py-4">
