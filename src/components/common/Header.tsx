@@ -45,6 +45,12 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, currentView }) => {
                             Home
                         </button>
                         <button
+                            onClick={() => handleNav('products')}
+                            className={`font-medium transition-colors ${currentView === 'products' ? 'text-blue-900 font-bold' : 'text-slate-600 hover:text-blue-900'}`}
+                        >
+                            Products
+                        </button>
+                        <button
                             onClick={() => handleNav('about')}
                             className={`font-medium transition-colors ${currentView === 'about' ? 'text-blue-900 font-bold' : 'text-slate-600 hover:text-blue-900'}`}
                         >
@@ -72,6 +78,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, currentView }) => {
                 <div className="md:hidden bg-white border-t border-gray-100 animate-in fade-in slide-in-from-top-4">
                     <div className="px-4 pt-2 pb-6 space-y-1">
                         <button onClick={() => handleNav('home')} className="block w-full text-left px-3 py-4 text-base font-medium text-slate-700 hover:bg-slate-50">Home</button>
+                        <button onClick={() => handleNav('products')} className="block w-full text-left px-3 py-4 text-base font-medium text-slate-700 hover:bg-slate-50">Products</button>
                         <button onClick={() => handleNav('about')} className="block w-full text-left px-3 py-4 text-base font-medium text-slate-700 hover:bg-slate-50">About Us</button>
                         <button onClick={() => handleNav('contact')} className="block w-full text-left px-3 py-4 text-base font-semibold text-blue-900 hover:bg-slate-50">Contact Us</button>
                     </div>

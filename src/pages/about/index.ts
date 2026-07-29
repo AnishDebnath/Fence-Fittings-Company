@@ -1,5 +1,4 @@
 // About page sections
-export { HeroSection } from './HeroSection';
 export { WhoWeAreSection } from './WhoWeAreSection';
 export { CredibilityBadges } from './CredibilityBadges';
 export { FoundersSection } from './FoundersSection';

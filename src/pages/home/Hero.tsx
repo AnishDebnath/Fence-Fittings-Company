@@ -5,9 +5,10 @@ import bannerVideo from '../../../assets/banner video.mp4';
 interface HeroProps {
     onCtaClick: () => void;
     onAboutClick?: () => void;
+    onProductsClick?: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onCtaClick, onAboutClick }) => {
+export const Hero: React.FC<HeroProps> = ({ onCtaClick, onAboutClick, onProductsClick }) => {
     const handleDownload = () => {
         window.open('#', '_blank');
         alert('Product catalogue will be available soon. Please contact us for more information.');
@@ -50,6 +51,15 @@ export const Hero: React.FC<HeroProps> = ({ onCtaClick, onAboutClick }) => {
                                 </>
                             </button>
 
+                            {onProductsClick && (
+                                <button
+                                    onClick={onProductsClick}
+                                    className="flex items-center justify-center space-x-3 border-2 border-white/20 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-all"
+                                >
+                                    <span>Our Products</span>
+                                    <ChevronRight className="w-4 h-4" />
+                                </button>
+                            )}
                             <button
                                 onClick={onAboutClick}
                                 className="flex items-center justify-center space-x-3 border-2 border-white/20 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-all"

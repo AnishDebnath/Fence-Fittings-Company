@@ -5,7 +5,7 @@ import logoBlue from '../../../assets/logo/fence-fittings-company logo.png';
 import { Watermark } from '../Watermark';
 
 interface FooterProps {
-    onNavigate: (view: 'home' | 'about' | 'contact') => void;
+    onNavigate: (view: 'home' | 'about' | 'contact' | 'products') => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
@@ -26,6 +26,16 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                     <p className="text-slate-400 max-w-lg leading-relaxed text-lg mb-10">
                         {COMPANY_DESCRIPTION.short}
                     </p>
+
+                    <div className="flex flex-wrap justify-center gap-3 mb-10">
+                        <button onClick={() => onNavigate('home')} className="text-sm text-slate-400 hover:text-white transition-colors font-medium">Home</button>
+                        <span className="text-slate-600">•</span>
+                        <button onClick={() => onNavigate('products')} className="text-sm text-slate-400 hover:text-white transition-colors font-medium">Products</button>
+                        <span className="text-slate-600">•</span>
+                        <button onClick={() => onNavigate('about')} className="text-sm text-slate-400 hover:text-white transition-colors font-medium">About Us</button>
+                        <span className="text-slate-600">•</span>
+                        <button onClick={() => onNavigate('contact')} className="text-sm text-slate-400 hover:text-white transition-colors font-medium">Contact Us</button>
+                    </div>
 
                     <div className="flex space-x-6">
                         <a href="#" className="group p-3 bg-white/5 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 ring-1 ring-white/10">

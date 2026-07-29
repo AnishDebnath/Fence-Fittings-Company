@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeroSection } from './HeroSection';
+import { HeroSection } from '../../components/common/HeroSection';
 import { ContactInfoSection } from './ContactInfoSection';
 
 interface ContactPageProps {
@@ -9,7 +9,7 @@ interface ContactPageProps {
 export const ContactPage: React.FC<ContactPageProps> = ({ onBack }) => {
     return (
         <div className="bg-white min-h-screen pt-20 animate-in fade-in duration-500">
-            <HeroSection onBack={onBack} />
+            <HeroSection onBack={onBack} title="Contact Us" subtitle="Global Support & Manufacturing Headquarters." />
             <ContactInfoSection />
         </div>
     );

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Certificate } from '../../data/about';
-import { HeroSection } from './HeroSection';
+import { HeroSection } from '../../components/common/HeroSection';
 import { WhoWeAreSection } from './WhoWeAreSection';
 import { CredibilityBadges } from './CredibilityBadges';
 import { FoundersSection } from './FoundersSection';
@@ -29,7 +29,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onBack }) => {
 
     return (
         <div className="bg-white min-h-screen pt-20 animate-in fade-in duration-500">
-            <HeroSection onBack={onBack} />
+            <HeroSection onBack={onBack} title="About Fence Fittings Company" subtitle="Quality Manufacturing & Global Engineering Excellence." />
             <WhoWeAreSection />
             <CredibilityBadges />
             <FoundersSection />

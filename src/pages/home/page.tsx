@@ -9,12 +9,13 @@ interface HomePageProps {
     currentOption: LandingOption;
     onContactClick: () => void;
     onAboutClick: () => void;
+    onProductsClick?: () => void;
 }
 
-export const HomePage: React.FC<HomePageProps> = ({ currentOption, onContactClick, onAboutClick }) => {
+export const HomePage: React.FC<HomePageProps> = ({ currentOption, onContactClick, onAboutClick, onProductsClick }) => {
     return (
         <>
-            <Hero onCtaClick={onContactClick} onAboutClick={onAboutClick} />
+            <Hero onCtaClick={onContactClick} onAboutClick={onAboutClick} onProductsClick={onProductsClick} />
             <TrustSection />
             <WhyChooseUs onContactClick={onContactClick} />
             <ContactSection currentOption={currentOption} />
