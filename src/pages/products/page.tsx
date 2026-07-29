@@ -1,18 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { CheckCircle2 } from 'lucide-react';
 import { HeroSection } from '../../components/common/HeroSection';
 import { ProductGrid } from './ProductGrid';
 
-interface ProductsPageProps {
-    onBack: () => void;
-    onProductClick?: (productId: string) => void;
-}
+export const ProductsPage: React.FC = () => {
+    const navigate = useNavigate();
 
-export const ProductsPage: React.FC<ProductsPageProps> = ({ onBack, onProductClick }) => {
     return (
         <div className="bg-white min-h-screen pt-20 animate-in fade-in duration-500">
             <HeroSection
-                onBack={onBack}
+                onBack={() => navigate('/')}
                 title="Our Products"
                 subtitle="Premium fence fittings for every application. Quality crafted for durability and performance."
             >
@@ -25,7 +23,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ onBack, onProductCli
                     ))}
                 </div>
             </HeroSection>
-            <ProductGrid onProductClick={onProductClick} />
+            <ProductGrid onProductClick={(productId) => navigate(`/products/${productId}`)} />
         </div>
     );
 };

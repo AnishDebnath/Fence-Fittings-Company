@@ -1,15 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { HeroSection } from '../../components/common/HeroSection';
 import { ContactInfoSection } from './ContactInfoSection';
 
-interface ContactPageProps {
-    onBack: () => void;
-}
+export const ContactPage: React.FC = () => {
+    const navigate = useNavigate();
 
-export const ContactPage: React.FC<ContactPageProps> = ({ onBack }) => {
     return (
         <div className="bg-white min-h-screen pt-20 animate-in fade-in duration-500">
-            <HeroSection onBack={onBack} title="Contact Us" subtitle="Global Support & Manufacturing Headquarters." />
+            <HeroSection onBack={() => navigate('/')} title="Contact Us" subtitle="Global Support & Manufacturing Headquarters." />
             <ContactInfoSection />
         </div>
     );

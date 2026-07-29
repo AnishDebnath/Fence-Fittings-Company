@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Certificate } from '../../data/about';
 import { HeroSection } from '../../components/common/HeroSection';
 import { WhoWeAreSection } from './WhoWeAreSection';
@@ -9,11 +10,8 @@ import { PlantTeamSection } from './PlantTeamSection';
 import { CompanyInfoSection } from './CompanyInfoSection';
 import { ImageModal } from './ImageModal';
 
-interface AboutPageProps {
-    onBack: () => void;
-}
-
-export const AboutPage: React.FC<AboutPageProps> = ({ onBack }) => {
+export const AboutPage: React.FC = () => {
+    const navigate = useNavigate();
     const [selectedImage, setSelectedImage] = useState<Certificate | null>(null);
 
     React.useEffect(() => {
@@ -29,7 +27,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onBack }) => {
 
     return (
         <div className="bg-white min-h-screen pt-20 animate-in fade-in duration-500">
-            <HeroSection onBack={onBack} title="About Fence Fittings Company" subtitle="Quality Manufacturing & Global Engineering Excellence." />
+            <HeroSection onBack={() => navigate('/')} title="About Fence Fittings Company" subtitle="Quality Manufacturing & Global Engineering Excellence." />
             <WhoWeAreSection />
             <CredibilityBadges />
             <FoundersSection />

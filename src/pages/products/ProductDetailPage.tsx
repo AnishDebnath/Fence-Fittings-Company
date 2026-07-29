@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Package, CheckCircle2, ChevronRight, Send } from 'lucide-react';
 import { PRODUCTS, getProductSpecTable } from '../../data/products';
 import { PackagingSpecChart } from '../../components/product/PackagingSpecChart';
 import { ProductCard } from '../../components/product/ProductCard';
 
-interface ProductDetailPageProps {
-    productId: string;
-    onBack: () => void;
-    onContactClick: () => void;
-    onProductClick?: (productId: string) => void;
-}
-
-export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId, onBack, onContactClick, onProductClick }) => {
-    const product = PRODUCTS.find(p => p.id === productId);
+export const ProductDetailPage: React.FC = () => {
+    const navigate = useNavigate();
     const [imgError, setImgError] = useState(false);
+
+    const gridStyle = {
+        backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+        backgroundSize: '60px 60px'
+    };
+
+    const productId = window.location.pathname.split('/products/')[1];
+    const product = PRODUCTS.find(p => p.id === productId);
 
     if (!product) {
         return (
@@ -23,7 +25,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId,
                     <h2 className="text-2xl font-bold text-slate-700 mb-2">Product Not Found</h2>
                     <p className="text-slate-500 mb-8">The product you're looking for doesn't exist.</p>
                     <button
-                        onClick={onBack}
+                        onClick={() => navigate('/products')}
                         className="inline-flex items-center space-x-2 bg-blue-900 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-800 transition-all"
                     >
                         <ArrowLeft className="w-4 h-4" />
@@ -50,14 +52,11 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId,
                     </svg>
                 </div>
                 <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-800/20 transform skew-x-12 translate-x-32" />
-                <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{
-                    backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-                    backgroundSize: '60px 60px'
-                }} />
+                <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={gridStyle} />
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <button
-                        onClick={onBack}
+                        onClick={() => navigate('/products')}
                         className="inline-flex items-center text-blue-200 hover:text-white transition-colors mb-6 group"
                     >
                         <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
@@ -148,44 +147,33 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId,
                                 <h3 className="text-xl font-bold mb-2">Interested in this product?</h3>
                                 <p className="text-blue-200 mb-6 text-sm">Contact us for pricing, bulk orders, and custom requirements.</p>
                                 <button
-                                    onClick={onContactClick}
-                                    className="inline-flex items-center space-x-3 bg-white text-blue-900 px-8 py-4 rounded-xl font-bold hover:bg-blue-50 transition-all shadow-lg group"
+                                    onClick={() => navigate('/contact')}
+                                    className="inline-flex items-center space-x-2 bg-white text-blue-900 px-8 py-3 rounded-xl font-bold hover:bg-blue-50 transition-all"
                                 >
-                                    <Send className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                                    <span>Contact Us for Inquiry</span>
+                                    <Send className="w-4 h-4" />
+                                    <span>Request a Quote</span>
                                 </button>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
 
-            {/* Related products */}
-            {related.length > 0 && (
-                <section className="pb-20">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="border-t border-slate-200 pt-16">
+                    {/* Related Products */}
+                    {related.length > 0 && (
+                        <div className="mt-16">
                             <h2 className="text-2xl font-bold text-slate-800 mb-8">Related Products</h2>
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                                {related.map(rp => (
+                                {related.map(relatedProduct => (
                                     <ProductCard
-                                        key={rp.id}
-                                        product={rp}
-                                        onClick={() => {
-                                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                                            if (onProductClick) {
-                                                onProductClick(rp.id);
-                                            } else {
-                                                onBack();
-                                            }
-                                        }}
+                                        key={relatedProduct.id}
+                                        product={relatedProduct}
+                                        onClick={() => navigate(`/products/${relatedProduct.id}`)}
                                     />
                                 ))}
                             </div>
                         </div>
-                    </div>
-                </section>
-            )}
+                    )}
+                </div>
+            </section>
         </div>
     );
 };

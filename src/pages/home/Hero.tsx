@@ -22,9 +22,9 @@ export const Hero: React.FC<HeroProps> = ({ onAboutClick, onProductsClick }) => 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div className="space-y-8 order-1 lg:order-1">
-                        <div className="inline-flex items-center space-x-2 bg-blue-800/40 backdrop-blur-sm border border-blue-400/30 px-4 py-2 rounded-full">
-                            <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
-                            <span className="text-blue-100 text-xs font-bold uppercase tracking-widest">Trusted Fence Fitting Manufacturer</span>
+                        <div className="inline-flex items-center space-x-2 bg-blue-800/40 backdrop-blur-sm border border-blue-400/30 px-4 py-2 rounded-full whitespace-nowrap">
+                            <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse flex-shrink-0" />
+                            <span className="text-blue-100 text-[9px] sm:text-xs font-bold uppercase tracking-widest">Trusted Fence Fitting Manufacturer</span>
                         </div>
 
                         <h1 className="text-4xl lg:text-6xl font-extrabold text-white leading-tight">
@@ -70,7 +70,7 @@ export const Hero: React.FC<HeroProps> = ({ onAboutClick, onProductsClick }) => 
                                 alt="Fence Fittings Manufacturing Plant"
                                 className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 max-h-[420px]"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-900/20 to-transparent flex items-end p-6">
+                            <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-900/20 to-transparent flex items-end p-6 hidden sm:flex">
                                 <div className="text-white">
                                     <p className="font-bold text-lg">State-of-the-Art Manufacturing Plant</p>
                                     <p className="text-xs text-blue-200 mt-1">In-house galvanizing, die & mold development, and quality laboratory</p>
