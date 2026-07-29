@@ -36,5 +36,8 @@ dist-ssr
 # Local agent tooling
 .agents/
 
+# Vercel local cache
+.vercel
+
 # OS metadata
 Thumbs.db
