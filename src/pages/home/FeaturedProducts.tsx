@@ -4,9 +4,10 @@ import { PRODUCTS } from '../../data/products';
 
 interface FeaturedProductsProps {
     onProductsClick?: () => void;
+    onProductClick?: (productId: string) => void;
 }
 
-export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ onProductsClick }) => {
+export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ onProductsClick, onProductClick }) => {
     const featured = PRODUCTS.slice(0, 8);
 
     return (
@@ -26,7 +27,8 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ onProductsCl
                     {featured.map((product) => (
                         <div
                             key={product.id}
-                            className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100 hover:-translate-y-1"
+                            className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100 hover:-translate-y-1 cursor-pointer"
+                            onClick={() => onProductClick?.(product.id)}
                         >
                             <div className="aspect-square bg-slate-50 overflow-hidden">
                                 <img

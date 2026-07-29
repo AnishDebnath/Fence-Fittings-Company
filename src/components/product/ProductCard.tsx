@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { ProductEntry } from '../../data/products';
 
-export const ProductCard: React.FC<{ product: ProductEntry }> = ({ product }) => {
+export const ProductCard: React.FC<{ product: ProductEntry; onClick?: () => void }> = ({ product, onClick }) => {
     const [imgError, setImgError] = useState(false);
 
     return (
-        <div className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 hover:-translate-y-1">
+        <div
+            className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 hover:-translate-y-1 cursor-pointer"
+            onClick={onClick}
+        >
             <div className="aspect-square bg-slate-100 overflow-hidden relative">
                 {!imgError ? (
                     <img

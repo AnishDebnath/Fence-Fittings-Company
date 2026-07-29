@@ -3,7 +3,7 @@ import { Search, X } from 'lucide-react';
 import { PRODUCTS, PRODUCT_CATEGORIES } from '../../data/products';
 import { ProductCard } from '../../components/product/ProductCard';
 
-export const ProductGrid: React.FC = () => {
+export const ProductGrid: React.FC<{ onProductClick?: (productId: string) => void }> = ({ onProductClick }) => {
     const [search, setSearch] = useState('');
     const [activeCategory, setActiveCategory] = useState<string>('All');
 
@@ -76,7 +76,7 @@ export const ProductGrid: React.FC = () => {
                 ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         {filtered.map(product => (
-                            <ProductCard key={product.id} product={product} />
+                            <ProductCard key={product.id} product={product} onClick={() => onProductClick?.(product.id)} />
                         ))}
                     </div>
                 )}

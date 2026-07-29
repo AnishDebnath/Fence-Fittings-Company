@@ -11,14 +11,15 @@ interface HomePageProps {
     onContactClick: () => void;
     onAboutClick: () => void;
     onProductsClick?: () => void;
+    onProductClick?: (productId: string) => void;
 }
 
-export const HomePage: React.FC<HomePageProps> = ({ currentOption, onContactClick, onAboutClick, onProductsClick }) => {
+export const HomePage: React.FC<HomePageProps> = ({ currentOption, onContactClick, onAboutClick, onProductsClick, onProductClick }) => {
     return (
         <>
             <Hero onAboutClick={onAboutClick} onProductsClick={onProductsClick} />
             <TrustSection />
-            <FeaturedProducts onProductsClick={onProductsClick} />
+            <FeaturedProducts onProductsClick={onProductsClick} onProductClick={onProductClick} />
             <WhyChooseUs onContactClick={onContactClick} />
             <ContactSection currentOption={currentOption} />
         </>

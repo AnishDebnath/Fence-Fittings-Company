@@ -12,7 +12,7 @@ export enum LandingOption {
   CONTACT = 'CONTACT'
 }
 
-export type View = 'home' | 'about' | 'contact' | 'products';
+export type View = 'home' | 'about' | 'contact' | 'products' | 'productDetail';
 
 export interface InquiryFormData {
   fullName?: string;

@@ -5,9 +5,10 @@ import { ProductGrid } from './ProductGrid';
 
 interface ProductsPageProps {
     onBack: () => void;
+    onProductClick?: (productId: string) => void;
 }
 
-export const ProductsPage: React.FC<ProductsPageProps> = ({ onBack }) => {
+export const ProductsPage: React.FC<ProductsPageProps> = ({ onBack, onProductClick }) => {
     return (
         <div className="bg-white min-h-screen pt-20 animate-in fade-in duration-500">
             <HeroSection
@@ -24,7 +25,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ onBack }) => {
                     ))}
                 </div>
             </HeroSection>
-            <ProductGrid />
+            <ProductGrid onProductClick={onProductClick} />
         </div>
     );
 };
