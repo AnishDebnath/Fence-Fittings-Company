@@ -14,7 +14,7 @@ export const PackagingSpecChart: React.FC<PackagingSpecChartProps> = ({ specData
             <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-slate-300 scrollbar-track-slate-100 hover:scrollbar-thumb-slate-400">
                 <table className="w-full text-center border-collapse min-w-[500px]">
                     <thead>
-                        <tr className="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white text-sm sm:text-base font-bold uppercase tracking-wider border-b border-blue-950">
+                        <tr className="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white text-sm sm:text-sm lg:text-xs font-bold uppercase tracking-wider border-b border-blue-950">
                             <th className="py-2 px-2 sm:py-3 sm:px-3 border-r border-blue-700/50 whitespace-nowrap">CODE</th>
                             <th className="py-2 px-2 sm:py-3 sm:px-3 border-r border-blue-700/50 whitespace-nowrap">SIZE</th>
                             <th className="py-2 px-2 sm:py-3 sm:px-3 border-r border-blue-700/50 whitespace-nowrap">PCS PER BAG</th>
@@ -22,7 +22,7 @@ export const PackagingSpecChart: React.FC<PackagingSpecChartProps> = ({ specData
                             <th className="py-2 px-2 sm:py-3 sm:px-3 whitespace-nowrap">PCS PER PALLET</th>
                         </tr>
                     </thead>
-                    <tbody className="text-slate-800 text-sm sm:text-base font-semibold divide-y divide-slate-100">
+                    <tbody className="text-slate-800 text-sm sm:text-base lg:text-sm font-semibold divide-y divide-slate-100">
                         {specData.rows.map((row: SpecRow, idx: number) => {
                             const isSelected = selectedRow === idx;
                             return (
