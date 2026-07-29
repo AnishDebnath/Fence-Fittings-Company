@@ -1,7 +1,7 @@
 import React from 'react';
 import { Linkedin, Facebook, Twitter } from 'lucide-react';
 import { BRAND_NAME, COMPANY_DESCRIPTION } from '../../data/constants';
-import logoBlue from '../../../assets/logo/fence-fittings-company logo.png';
+import mainLogo from '@/assets/logo.jpg';
 import { Watermark } from '../Watermark';
 
 interface FooterProps {
@@ -17,9 +17,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                         className="flex items-center space-x-3 mb-8 cursor-pointer hover:opacity-80 transition-opacity"
                         onClick={() => onNavigate('home')}
                     >
-                        <div className="w-12 h-12 bg-white rounded-lg flex flex-col items-center justify-center p-1 shadow-lg shadow-white/5">
-                            <img src={logoBlue} alt="Fence Fittings Company logo" className="w-full h-full object-contain" />
-                        </div>
+                        <img
+                            src={mainLogo}
+                            alt="Fence Fittings Company"
+                            className="w-12 h-12 flex-shrink-0 transition-transform duration-300 hover:scale-105 object-contain"
+                        />
                         <h1 className="text-2xl font-black tracking-tight uppercase text-white">{BRAND_NAME.split(' – ')[0]}</h1>
                     </div>
 

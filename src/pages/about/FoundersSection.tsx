@@ -26,7 +26,7 @@ export const FoundersSection: React.FC = () => {
                                 <div className="w-70 aspect-[4/5] bg-slate-100 rounded-3xl overflow-hidden shadow-2xl relative">
                                     <img
                                         src={founder.image}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover object-center"
                                         alt={founder.name}
                                         loading="lazy"
                                         decoding="async"

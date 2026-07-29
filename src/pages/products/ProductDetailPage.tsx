@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Package, CheckCircle2, ChevronRight, Send } from 'lucide-react';
-import { PRODUCTS, ProductEntry } from '../../data/products';
+import { PRODUCTS, getProductSpecTable } from '../../data/products';
+import { PackagingSpecChart } from '../../components/product/PackagingSpecChart';
+import { ProductCard } from '../../components/product/ProductCard';
 
 interface ProductDetailPageProps {
     productId: string;
     onBack: () => void;
+    onContactClick: () => void;
     onProductClick?: (productId: string) => void;
 }
 
-export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId, onBack, onProductClick }) => {
+export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId, onBack, onContactClick, onProductClick }) => {
     const product = PRODUCTS.find(p => p.id === productId);
     const [imgError, setImgError] = useState(false);
 
@@ -30,6 +33,8 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId,
             </div>
         );
     }
+
+    const specTable = getProductSpecTable(product.id, product.name);
 
     const related = PRODUCTS
         .filter(p => p.category === product.category && p.id !== product.id)
@@ -117,6 +122,9 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId,
                                 </div>
                             </div>
 
+                            {/* Packaging & Size Specification Chart */}
+                            <PackagingSpecChart specData={specTable} productName={product.name} />
+
                             {/* Features */}
                             <div className="bg-blue-50 rounded-2xl p-6 border border-blue-100">
                                 <h3 className="font-bold text-slate-800 mb-4">Key Features</h3>
@@ -140,7 +148,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId,
                                 <h3 className="text-xl font-bold mb-2">Interested in this product?</h3>
                                 <p className="text-blue-200 mb-6 text-sm">Contact us for pricing, bulk orders, and custom requirements.</p>
                                 <button
-                                    onClick={onBack}
+                                    onClick={onContactClick}
                                     className="inline-flex items-center space-x-3 bg-white text-blue-900 px-8 py-4 rounded-xl font-bold hover:bg-blue-50 transition-all shadow-lg group"
                                 >
                                     <Send className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
@@ -158,30 +166,20 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId,
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="border-t border-slate-200 pt-16">
                             <h2 className="text-2xl font-bold text-slate-800 mb-8">Related Products</h2>
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                                 {related.map(rp => (
-                                    <div
+                                    <ProductCard
                                         key={rp.id}
-                                        className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100 cursor-pointer"
+                                        product={rp}
                                         onClick={() => {
                                             window.scrollTo({ top: 0, behavior: 'smooth' });
-                                            // Force page re-render by navigating away and back
-                                            onBack();
+                                            if (onProductClick) {
+                                                onProductClick(rp.id);
+                                            } else {
+                                                onBack();
+                                            }
                                         }}
-                                    >
-                                        <div className="aspect-square bg-slate-50 overflow-hidden">
-                                            <img
-                                                src={rp.image}
-                                                alt={rp.name}
-                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                                loading="lazy"
-                                            />
-                                        </div>
-                                        <div className="p-4">
-                                            <p className="text-xs font-bold text-blue-900/60 uppercase tracking-wider mb-1">{rp.category}</p>
-                                            <h3 className="font-bold text-slate-800 text-sm leading-snug line-clamp-2">{rp.name}</h3>
-                                        </div>
-                                    </div>
+                                    />
                                 ))}
                             </div>
                         </div>

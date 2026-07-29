@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../../assets/watermark.png';
+import logo from '@/assets/watermark.png';
 
 export const Watermark: React.FC = () => {
     return (

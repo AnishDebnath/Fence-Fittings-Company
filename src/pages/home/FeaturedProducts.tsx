@@ -1,6 +1,7 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import { PRODUCTS } from '../../data/products';
+import { ProductCard } from '../../components/product/ProductCard';
 
 interface FeaturedProductsProps {
     onProductsClick?: () => void;
@@ -23,30 +24,13 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ onProductsCl
                     </p>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
                     {featured.map((product) => (
-                        <div
+                        <ProductCard
                             key={product.id}
-                            className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100 hover:-translate-y-1 cursor-pointer"
+                            product={product}
                             onClick={() => onProductClick?.(product.id)}
-                        >
-                            <div className="aspect-square bg-slate-50 overflow-hidden">
-                                <img
-                                    src={product.image}
-                                    alt={product.name}
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                    loading="lazy"
-                                />
-                            </div>
-                            <div className="p-4">
-                                <p className="text-xs font-bold text-blue-900/60 uppercase tracking-wider mb-1">
-                                    {product.category}
-                                </p>
-                                <h3 className="font-bold text-slate-800 text-sm leading-snug line-clamp-2">
-                                    {product.name}
-                                </h3>
-                            </div>
-                        </div>
+                        />
                     ))}
                 </div>
 
@@ -65,3 +49,4 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ onProductsCl
         </section>
     );
 };
+

@@ -50,7 +50,7 @@ const App: React.FC = () => {
       {view === 'about' && <AboutPage onBack={() => navigateTo('home')} />}
       {view === 'contact' && <ContactPage onBack={() => navigateTo('home')} />}
       {view === 'products' && <ProductsPage onBack={() => navigateTo('home')} onProductClick={handleProductClick} />}
-      {view === 'productDetail' && <ProductDetailPage productId={selectedProductId} onBack={() => navigateTo('products')} />}
+      {view === 'productDetail' && <ProductDetailPage productId={selectedProductId} onBack={() => navigateTo('products')} onContactClick={navigateToContact} onProductClick={handleProductClick} />}
 
       <Footer onNavigate={navigateTo} />
     </div>

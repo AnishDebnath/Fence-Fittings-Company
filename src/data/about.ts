@@ -1,16 +1,16 @@
-import zeroDefect from '@/assets/badge/zero-defect.png';
-import Year from '@/assets/badge/year.png';
-import iso from '@/assets/badge/iso.png';
-import certISO from '@/assets/certificate & awards/ISO.jpg';
-import certAward from '@/assets/certificate & awards/Award.jpg';
-import certGST from '@/assets/certificate & awards/GST.jpg';
-import certMSME from '@/assets/certificate & awards/MSME.jpg';
-import founder1 from '@/assets/founders/founder-1.jpg';
-import founder2 from '@/assets/founders/founder-2.jpg';
-import plantPic1 from '@/assets/plant images/our-team-pic-1.jpg';
-import plantPic2 from '@/assets/plant images/our-team-pic-2.jpg';
-import plantPic3 from '@/assets/plant images/our-team-pic-3.jpg';
-import plantPic4 from '@/assets/plant images/our-team-pic-4.jpg';
+import zeroDefect from '../assets/images/badge-zero-defect.jpg';
+import Year from '../assets/images/badge-50-years.jpg';
+import iso from '../assets/images/badge-iso-seal.jpg';
+import certISO from '../assets/images/cert-iso-9001.jpg';
+import certAward from '../assets/images/cert-export-award.jpg';
+import certGST from '../assets/images/cert-gst.jpg';
+import certMSME from '../assets/images/cert-msme.jpg';
+import founder1 from '../assets/images/founder-arjun-mehta.jpg';
+import founder2 from '../assets/images/founder-vikram-singh.jpg';
+import plantPic1 from '../assets/images/plant-facility-1.jpg';
+import plantPic2 from '../assets/images/plant-facility-2.jpg';
+import plantPic3 from '../assets/images/plant-facility-3.jpg';
+import plantPic4 from '../assets/images/plant-facility-4.jpg';
 
 export interface Certificate {
     title: string;

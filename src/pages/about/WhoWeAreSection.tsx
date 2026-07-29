@@ -1,6 +1,6 @@
 import React from 'react';
 import { ABOUT_PAGE_DATA } from '../../data/about';
-import aboutUsImage from '../../../assets/about-us.jpg';
+import aboutUsImage from '../../assets/images/about-us-facility.jpg';
 
 export const WhoWeAreSection: React.FC = () => {
     return (

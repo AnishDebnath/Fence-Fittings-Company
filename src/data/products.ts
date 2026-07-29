@@ -6,6 +6,19 @@ export interface ProductEntry {
     image: string;
 }
 
+export interface SpecRow {
+    code: string;
+    size: string;
+    pcsPerBag: string | number;
+    bagPerPallet: string | number;
+    pcsPerPallet: string | number;
+}
+
+export interface SpecTableData {
+    title: string;
+    rows: SpecRow[];
+}
+
 // Load product images via Vite's import.meta.glob
 const productImages = import.meta.glob('/assets/products/*.jpg', { eager: true, query: '?url' });
 
@@ -97,3 +110,58 @@ export const PRODUCTS: ProductEntry[] = [
     { id: "sleeve-top-rail", name: "Sleeve Top Rail", category: "Connectors & Accessories", description: "Top rail sleeve for connecting and extending fence top rails", image: img("sleeve-top-rail.jpg") },
     { id: "track-10", name: "Track 10", category: "Connectors & Accessories", description: "Track component for sliding gate and roller systems", image: img("track-10.jpg") },
 ];
+
+export const CUSTOM_SPEC_TABLES: Record<string, SpecTableData> = {
+    "barbed-arm-14-16": {
+        title: "1. BARBED ARM - 14 GA  & 16 GA",
+        rows: [
+            { code: "350", size: '1 5/8"', pcsPerBag: 25, bagPerPallet: 48, pcsPerPallet: 1200 },
+            { code: "370", size: '2"', pcsPerBag: 25, bagPerPallet: 40, pcsPerPallet: 1000 },
+            { code: "390", size: '2 1/2"', pcsPerBag: 25, bagPerPallet: 32, pcsPerPallet: 800 },
+            { code: "410", size: '3"', pcsPerBag: 20, bagPerPallet: 32, pcsPerPallet: 640 }
+        ]
+    },
+    "barbed-arm-vertical-16": {
+        title: "2. BARBED ARM VERTICAL - 16 GA",
+        rows: [
+            { code: "351", size: '1 5/8"', pcsPerBag: 25, bagPerPallet: 48, pcsPerPallet: 1200 },
+            { code: "371", size: '2"', pcsPerBag: 25, bagPerPallet: 40, pcsPerPallet: 1000 },
+            { code: "391", size: '2 1/2"', pcsPerBag: 25, bagPerPallet: 32, pcsPerPallet: 800 },
+            { code: "411", size: '3"', pcsPerBag: 20, bagPerPallet: 32, pcsPerPallet: 640 }
+        ]
+    },
+    "barbed-arm-cup-type": {
+        title: "3. BARBED ARM - CUP TYPE",
+        rows: [
+            { code: "352", size: '1 5/8"', pcsPerBag: 25, bagPerPallet: 48, pcsPerPallet: 1200 },
+            { code: "372", size: '2"', pcsPerBag: 25, bagPerPallet: 40, pcsPerPallet: 1000 },
+            { code: "392", size: '2 1/2"', pcsPerBag: 25, bagPerPallet: 32, pcsPerPallet: 800 }
+        ]
+    },
+    "barbed-y-arm-14-16": {
+        title: "4. BARBED Y ARM - 14 GA & 16 GA",
+        rows: [
+            { code: "353", size: '1 5/8"', pcsPerBag: 20, bagPerPallet: 40, pcsPerPallet: 800 },
+            { code: "373", size: '2"', pcsPerBag: 20, bagPerPallet: 36, pcsPerPallet: 720 },
+            { code: "393", size: '2 1/2"', pcsPerBag: 20, bagPerPallet: 32, pcsPerPallet: 640 },
+            { code: "413", size: '3"', pcsPerBag: 15, bagPerPallet: 32, pcsPerPallet: 480 }
+        ]
+    }
+};
+
+export function getProductSpecTable(productId: string, productName: string): SpecTableData {
+    if (CUSTOM_SPEC_TABLES[productId]) {
+        return CUSTOM_SPEC_TABLES[productId];
+    }
+    // Default specification table format matching the exact chart structure
+    return {
+        title: productName.toUpperCase(),
+        rows: [
+            { code: "350", size: '1 5/8"', pcsPerBag: 25, bagPerPallet: 48, pcsPerPallet: 1200 },
+            { code: "370", size: '2"', pcsPerBag: 25, bagPerPallet: 40, pcsPerPallet: 1000 },
+            { code: "390", size: '2 1/2"', pcsPerBag: 25, bagPerPallet: 32, pcsPerPallet: 800 },
+            { code: "410", size: '3"', pcsPerBag: 20, bagPerPallet: 32, pcsPerPallet: 640 }
+        ]
+    };
+}
+

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Package, ChevronRight, CheckCircle2 } from 'lucide-react';
-import bannerVideo from '../../../assets/banner video.mp4';
+import aboutUsImg from '../../assets/images/about-us-facility.jpg';
 
 interface HeroProps {
     onAboutClick?: () => void;
@@ -64,18 +64,18 @@ export const Hero: React.FC<HeroProps> = ({ onAboutClick, onProductsClick }) => 
                     </div>
 
                     <div className="relative order-2 lg:order-2">
-                        <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-                            <video
-                                width="100%"
-                                height="auto"
-                                autoPlay
-                                muted
-                                loop
-                                playsInline
-                                className="w-full h-auto"
-                                src={bannerVideo}
+                        <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
+                            <img
+                                src={aboutUsImg}
+                                alt="Fence Fittings Manufacturing Plant"
+                                className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 max-h-[420px]"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-900/20 to-transparent flex items-end p-6">
+                                <div className="text-white">
+                                    <p className="font-bold text-lg">State-of-the-Art Manufacturing Plant</p>
+                                    <p className="text-xs text-blue-200 mt-1">In-house galvanizing, die & mold development, and quality laboratory</p>
+                                </div>
+                            </div>
                         </div>
                         <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/20 blur-3xl rounded-full" />
                         <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-400/20 blur-3xl rounded-full" />

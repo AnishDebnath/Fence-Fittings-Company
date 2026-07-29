@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { BRAND_NAME } from '../../data/constants';
 import { View } from '../../../types';
-import logoWhite from '../../../assets/logo/fence-fittings-company logo.png';
+import mainLogo from '@/assets/logo.jpg';
 
 interface HeaderProps {
     onNavigate: (view: View) => void;
@@ -22,18 +22,20 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, currentView }) => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-20 items-center">
                     <div
-                        className="flex items-center space-x-3 cursor-pointer"
+                        className="flex items-center space-x-3 cursor-pointer group"
                         onClick={() => handleNav('home')}
                     >
-                        <div className="w-14 h-14  rounded-lg flex flex-col items-center justify-center p-1 shadow-md hover:shadow-lg transition-all">
-                            <img src={logoWhite} alt="Fence Fittings Company logo" className="w-full h-full object-contain" />
-                        </div>
+                        <img
+                            src={mainLogo}
+                            alt="Fence Fittings Company"
+                            className="w-12 h-12 flex-shrink-0 transition-transform duration-300 hover:scale-105 object-contain"
+                        />
 
                         <div>
-                            <h1 className="text-xl font-extrabold text-blue-900 tracking-tight leading-none uppercase">
+                            <h1 className="text-xl font-extrabold text-blue-900 tracking-tight leading-none uppercase group-hover:text-blue-700 transition-colors">
                                 {BRAND_NAME.split(' – ')[0]}
                             </h1>
-                            <p className="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">Manufacturing & Export Excellence</p>
+                            <p className="text-[10px] text-slate-500 uppercase tracking-widest font-semibold mt-0.5">Manufacturing & Export Excellence</p>
                         </div>
                     </div>
 

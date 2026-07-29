@@ -21,12 +21,12 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = ({ onCert
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {ABOUT_PAGE_DATA.certificates.map((cert, index) => (
                         <div key={index} className="group relative bg-slate-50 rounded-xl p-4 border border-gray-100 shadow-sm cursor-pointer hover:shadow-lg transition-shadow duration-200" onClick={() => onCertificateClick(cert)}>
-                            <div className="aspect-[3/4] bg-white rounded-lg overflow-hidden border border-gray-200 mb-4 relative will-change-transform">
+                            <div className="aspect-[3/4] bg-slate-100 rounded-lg overflow-hidden border border-slate-200 mb-4 relative shadow-inner">
                                 {cert.image ? (
                                     <img
                                         src={cert.image}
                                         alt={cert.title}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-contain p-1.5 bg-white group-hover:scale-105 transition-transform duration-300"
                                         loading="lazy"
                                         decoding="async"
                                     />
