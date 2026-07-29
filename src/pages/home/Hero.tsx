@@ -69,6 +69,8 @@ export const Hero: React.FC<HeroProps> = ({ onAboutClick, onProductsClick }) => 
                                 src={aboutUsImg}
                                 alt="Fence Fittings Manufacturing Plant"
                                 className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 max-h-[420px]"
+                                loading="lazy"
+                                decoding="async"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-900/20 to-transparent flex items-end p-6 hidden sm:flex">
                                 <div className="text-white">

@@ -83,6 +83,8 @@ export const ProductDetailPage: React.FC = () => {
                                         alt={product.name}
                                         className="w-full max-w-full h-auto object-contain"
                                         onError={() => setImgError(true)}
+                                        loading="lazy"
+                                        decoding="async"
                                     />
                                 ) : (
                                     <div className="w-full h-64 flex items-center justify-center text-slate-300">
